@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Apply for Loan</title>
+  </head>
+  <body>
+    <h1>Apply for Educational Loan</h1>
+    <form action="{{ url_for('apply') }}" method="POST">
+      Name: <input type="text" name="name" required /><br />
+      Age: <input type="number" name="age" required /><br />
+      Course: <input type="text" name="course" required /><br />
+      Loan Amount:
+      <input type="number" name="amount" step="0.01" required /><br />
+      <input type="submit" value="Apply" />
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+  </body>
+</html>
