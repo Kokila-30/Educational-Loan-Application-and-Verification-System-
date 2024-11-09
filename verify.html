@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Verify Applications</title>
+  </head>
+  <body>
+    <h1>Verify Loan Applications</h1>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Course</th>
+        <th>Amount</th>
+        <th>Status</th>
+      </tr>
+      {% for app in applications %}
+      <tr>
+        <td>{{ app[0] }}</td>
+        <td>{{ app[1] }}</td>
+        <td>{{ app[2] }}</td>
+        <td>{{ app[3] }}</td>
+        <td>{{ app[4] }}</td>
+        <td>{{ app[5] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <form action="{{ url_for('verify') }}" method="POST">
+      Application ID: <input type="number" name="app_id" required /><br />
+      Status:
+      <select name="status">
+        <option value="Approved">Approved</option>
+        <option value="Rejected">Rejected</option></select
+      ><br />
+      <input type="submit" value="Update Status" />
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+  </body>
+</html>
